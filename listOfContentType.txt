@@ -1,0 +1,29 @@
+Textual Data
+===========
+Text: 'text/plain'
+HTML: 'text/html'
+CSS: 'text/css'
+JavaScript: 'application/javascript'
+JSON: 'application/json'
+XML: 'application/xml'
+
+Images
+======
+JPEG: 'image/jpeg'
+PNG: 'image/png'
+GIF: 'image/gif'
+SVG: 'image/svg+xml'
+
+Audio/Video
+===========
+MP3: 'audio/mpeg'
+MP4: 'video/mp4'
+WebM: 'video/webm'
+OGG: 'audio/ogg'
+
+Application Data
+================
+PDF: 'application/pdf'
+ZIP: 'application/zip'
+Form Data: 'application/x-www-form-urlencoded'
+Multipart Form Data: 'multipart/form-data'

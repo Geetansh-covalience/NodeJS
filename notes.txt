@@ -1,0 +1,8 @@
+In case of common js if ww write module.exports multiple times it will override 
+that is why we use module.exports in object or like exports.varName
+
+Single Responsibility Principle (SRP)
+Open/Closed Principle
+Liskov’s Substitution Principle (LSP)
+Interface Segregation Principle (ISP)
+Dependency Inversion Principle (DIP)

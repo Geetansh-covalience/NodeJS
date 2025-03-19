@@ -1,0 +1,18 @@
+in sync we dont need any callback but in async we need callback
+
+write  will override the content present in the file while append will not
+
+cpSync => to copy file
+unlink => to delete a file
+mkdirSync => create directory paramter recursive is used to make recursive directories
+exists => check if file is present or not
+truncate => it will kept first n bytes of characters
+rename => rename file
+
+
+'r'	    Open the file for reading. An error occurs if the file does not exist.
+'r+'	Open the file for reading and writing. An error occurs if the file doesn't exist.
+'w'	    Open the file for writing. If it does not exist, it is created. If it exists, it's truncated.
+'w+'	Open the file for reading and writing. If it does not exist, it's created. If it exists, it's truncated.
+'a'	    Open the file for appending. If it does not exist, it is created.
+'a+'	Open the file for reading and appending. If it doesn't exist, it's created.
