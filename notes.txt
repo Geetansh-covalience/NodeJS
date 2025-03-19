@@ -6,3 +6,49 @@ Open/Closed Principle
 Liskov’s Substitution Principle (LSP)
 Interface Segregation Principle (ISP)
 Dependency Inversion Principle (DIP)
+
+
+
+
+function pyramidOfDoom() {
+    setTimeout(() => {
+      console.log(1)
+      setTimeout(() => {
+        console.log(2)
+        setTimeout(() => {
+          console.log(3)
+        }, 500)
+      }, 2000)
+    }, 1000)
+  }   
+
+
+  => callback hell
+
+
+
+
+
+  let obj = {
+//     sname:"geetansh",
+//     age:22,
+//     currenTime:Date()
+// }
+
+// let {sname,currenTime,age} = obj;
+
+// console.log(sname,currenTime,age);     =>    object destructuring
+
+
+let obj = {
+  sname: "geetansh",
+  age: 22,
+  doj: new Date(Date.UTC(2025,0,1)),
+  gender: "male",
+};
+
+function userInfo({ sname, age, doj, gender }) {
+  console.log(`I am ${sname} and i am ${age} years old. I joined covalience on ${doj} `);
+}
+
+userInfo(obj)    =>    function destructuring
