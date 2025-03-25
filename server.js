@@ -2,6 +2,8 @@ import http from "http";
 import mysql from "mysql";
 import fs from "fs";
 import axios from "axios";
+import path from "path";
+
 const connect = mysql.createPool({
   connectionLimit: 2,
   host: "localhost",
@@ -12,6 +14,7 @@ const connect = mysql.createPool({
 
 let app = http.createServer(async function (req, res) {
   let route = req.url;
+  // res.write("All set!!!")
   // connect.getConnection((err, connection) => {
   //   connection.query("Select * from demo_emp", (error, rows) => {
   //     res.writeHead(200, { "Content-Type": "application/json" });
@@ -25,9 +28,21 @@ let app = http.createServer(async function (req, res) {
   // });
 
   if (route === "/food") {
-    http.request()
+    try{
+      let response = await axios.get("https://zwigato-server-m6w6.onrender.com/api/food/list");
+      let info = response.data.data;
+      info.forEach((elem) => {
+        res.write(`${elem.name} \n`)
+        res.write(`${elem.description} \n`)
+        res.write(`${elem.price} \n`)
+        res.write(`\n \n \n`)
+      })
+    } catch(err){
+      console.log(err); 
+    }
+
+    res.end()
   } 
-  
   
   
   else if (route === "/user") {
@@ -45,6 +60,8 @@ let app = http.createServer(async function (req, res) {
 
     res.end();
   }
+
+  res.end()
 });
 
 app.listen(9001);

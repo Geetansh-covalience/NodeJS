@@ -1,0 +1,6 @@
+Buffer is used to store raw binary data outside v8 heap
+
+
+.alloc will allocate the memory and initialised with zero 
+.unsafealloc will allocate memory and does not initialised 
+.unsafealloc slow will allocate memory from memory pool so that mermory is not wasted and reallocate to others 
