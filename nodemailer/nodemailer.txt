@@ -1,0 +1,62 @@
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: 'your_email@gmail.com',
+    pass: 'your_app_password'
+  },
+  tls: {
+    rejectUnauthorized: false
+  },
+  debug: true,
+  pool: true,
+  maxConnections: 5,
+  maxMessages: 100,
+  rateLimit: true,
+  from: '"Sender Name" <your_email@gmail.com>',
+  replyTo: '"Support" <support@example.com>',
+  headers: {
+    'X-Custom-Header': 'Custom value'
+  },
+  authMethod: 'XOAUTH2',
+  proxy: 'http://proxy.example.com:8080',
+  bind: '192.168.1.100',
+  url: 'smtp://smtp.gmail.com:587',
+  authOptional: false
+});
+
+const mailOptions = {
+  from: '"Sender Name" <your_email@gmail.com>',
+  to: 'recipient@example.com',
+  cc: 'ccrecipient@example.com',
+  bcc: 'bccrecipient@example.com',
+  subject: 'Test Email with Nodemailer',
+  text: 'This is a test email sent using Nodemailer with all configuration options.',
+  html: '<h1>Test Email</h1><p>This is a test email sent using <strong>Nodemailer</strong>.</p>',
+  attachments: [
+    {
+      filename: 'file.txt',
+      content: 'Hello, this is the content of the attached file.'
+    },
+    {
+      filename: 'logo.png',
+      path: '/path/to/logo.png'
+    },
+    {
+      filename: 'image.jpg',
+      path: 'https://example.com/image.jpg'
+    }
+  ],
+  replyTo: 'no-reply@example.com',
+};
+
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+    console.log('Error sending email:', error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});

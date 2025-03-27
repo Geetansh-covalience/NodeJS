@@ -1,0 +1,2 @@
+new url is new technique to handle url 
+.for crud on query

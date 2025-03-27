@@ -4,3 +4,18 @@ Buffer is used to store raw binary data outside v8 heap
 .alloc will allocate the memory and initialised with zero 
 .unsafealloc will allocate memory and does not initialised 
 .unsafealloc slow will allocate memory from memory pool so that mermory is not wasted and reallocate to others 
+
+
+.from([]) => creates array Buffer
+.from("string","encoding") => create a buffer from string and also to copy one string buffder to other
+
+buf.write("Hello",0,5,'utf-8')   0 means position 5 means length
+
+.slice(start,length) => to extract a string from other string
+
+we can set maximum of buffer size of 2gb
+
+
+
+
+***** in buffer.array we cannot write - or char because are all truncated using `(value & 255)` 

@@ -100,39 +100,37 @@
 // // event.emit("read",1,2,3)
 // // console.log(event.listenerCount("read"));
 
-// import { EventEmitter } from "events";
-// class Parent extends EventEmitter {
-//   parent() {
-//     setTimeout(() => {
-//       this.emit("parent", "Parent Emitter...");
-//     }, 500);
-//   }
-// }
+import { EventEmitter } from "events";
+class Parent extends EventEmitter {
+  parent() {
+    setTimeout(() => {
+      this.emit("parent", "Parent Emitter...");
+    }, 500);
+  }
+}
 
-// class Child extends Parent {
-//   child() {
-//     let parentEvent = new Parent();
-//     setTimeout(() => {
-//       this.emit("child", "Child Emitter...");
-//     }, 1500);
+class Child extends Parent {
+  child() {
+    setTimeout(() => {
+      this.emit("child", "Child Emitter...");
+    }, 1500);
 
-//     return parentEvent;
-//   }
-// }
+  }
+}
 
-// let child = new Child();
-// let parent = new Parent();
+let child = new Child();
+let parent = new Parent();
 
-// child.on("child",(mssg) => {
-//   console.log(mssg);
-// }).child();
+child.on("child",(mssg) => {
+  console.log(mssg);
+}).child();
 
-// child.on("parent",(mssg) => {
-//   console.log(mssg);
-// }).parent();
+child.on("parent",(mssg) => {
+  console.log(mssg);
+}).parent();
 
-// parent.on("parent",(mssg) => {
-//   console.log(mssg);
+parent.on("parent",(mssg) => {
+  console.log(mssg);
+}).parent();
 
-// }).parent();
-
+  

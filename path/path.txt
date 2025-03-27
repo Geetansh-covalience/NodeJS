@@ -1,0 +1,18 @@
+.basename returns last file like for "C/A/B/C/D" it will return D
+.extname => return file extension
+.format => obj to string
+.join => join multiple strings with '\'
+.matchesGlob => determines if path matches the pattern.
+.parse => string to obj
+.isAbsolute => to check if path is absolute or not
+
+
+let obj = {
+    root: 'C:/',
+    dir: 'C:/A/B/C/D/E/F/G',
+    base: 'H.js',
+    ext: '.js',
+}
+console.log(path.format(obj));
+
+console.log(path.parse("C:/A/B/C/D/E/F/G/H.js/"));
