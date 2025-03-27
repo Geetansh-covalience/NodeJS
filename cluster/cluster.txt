@@ -1,0 +1,14 @@
+if (cluster.isPrimary) {
+  const worker = cluster.fork(); // The master creates a worker
+  worker.send('hi there'); // The master sends a message to the worker
+  
+  // The master listens for the worker's response
+  worker.on('message', (msg) => {
+    console.log('Master received:', msg); // Prints the worker's message back
+  });
+
+} else if (cluster.isWorker) {
+  process.on('message', (msg) => { // The worker listens for the master’s message
+    process.send(msg); // The worker sends the same message back to the master
+  });
+}
